@@ -5,19 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageKostka;
+    ImageView imageEagle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageKostka = findViewById(R.id.imageKostka);
+        imageEagle = findViewById(R.id.imageEagle);
         startAnime();
+        startMove();
     }
+
+    private void startMove() {
+        Animation out = new ScaleAnimation(1f,1.5f,1f,1.5f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+        out.setDuration(4000);
+        out.setRepeatCount(3);
+        out.setFillAfter(true);
+        imageEagle.startAnimation(out);
+    }
+
     private void startAnime(){
 
         Animation out = new AlphaAnimation(1,0);
@@ -61,3 +74,4 @@ public class MainActivity extends AppCompatActivity {
         imageKostka.startAnimation(out);
     }
 }
+//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
