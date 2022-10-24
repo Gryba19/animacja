@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
     */
    private void startAnime(){
-       if()
+       if(RadioGroup)
        {
           Animation out = new AlphaAnimation(1,0);
            out.setDuration(4000);
