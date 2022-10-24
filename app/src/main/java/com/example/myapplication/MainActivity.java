@@ -2,31 +2,40 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageKostka;
     ImageView imageEagle;
+    RadioGroup choice;
     RadioButton alfa;
     RadioButton scale;
     RadioButton rotate;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageKostka = findViewById(R.id.imageKostka);
         imageEagle = findViewById(R.id.imageEagle);
+        choice = findViewById(R.id.Choice);
+        int abc= choice.getCheckedRadioButtonId();
         alfa=findViewById(R.id.Alfa);
         scale=findViewById(R.id.Scale);
         rotate=findViewById(R.id.Rotate);
+
+        //alfa.setOnClickListener();
         startAnime();
     }
 /*
@@ -82,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
     }
     */
    private void startAnime(){
-       if(alfa.isChecked())
+       if()
        {
-           Animation out = new AlphaAnimation(1,0);
+          Animation out = new AlphaAnimation(1,0);
            out.setDuration(4000);
            //
            Animation in = new AlphaAnimation(0,1);
@@ -123,7 +132,8 @@ public class MainActivity extends AppCompatActivity {
                }
            });
            imageKostka.startAnimation(out);
+           }
        }
    }
-}
+
 //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
