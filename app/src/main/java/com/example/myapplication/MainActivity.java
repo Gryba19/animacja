@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -34,8 +35,37 @@ public class MainActivity extends AppCompatActivity {
         alfa=findViewById(R.id.Alfa);
         scale=findViewById(R.id.Scale);
         rotate=findViewById(R.id.Rotate);
+        scale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation out = new ScaleAnimation(1f,1.5f,1f,1.5f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+                out.setDuration(4000);
+                out.setRepeatCount(3);
+                out.setFillAfter(true);
+                imageKostka.startAnimation(out);
+            }
+        });
+        alfa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation out = new AlphaAnimation(1,0);
+                out.setDuration(4000);
+                Animation in = new AlphaAnimation(0,1);
+                in.setDuration(4000);
+                imageKostka.startAnimation(out);
+            }
+        });
+        rotate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation out = new RotateAnimation(0,360,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+                out.setDuration(4000);
+                out.setRepeatCount(3);
+                out.setFillAfter(true);
+                imageKostka.startAnimation(out);
 
-        //alfa.setOnClickListener();
+            }
+        });
         startAnime();
     }
 /*
@@ -91,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
     */
    private void startAnime(){
-       if(RadioGroup)
+       if(alfa.isChecked())
        {
           Animation out = new AlphaAnimation(1,0);
            out.setDuration(4000);
